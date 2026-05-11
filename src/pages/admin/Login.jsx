@@ -29,7 +29,7 @@ export default function AdminLogin() {
     <div className="login-page">
       <div className="login-card">
         <div className="login-brand">
-          <i className="fas fa-mug-hot"></i>
+          <img src="/logo.png" alt="RJ's Cafe logo" className="brand-logo" />
           <h1>RJ's <em>Café</em></h1>
           <span className="label-text">Staff Portal</span>
         </div>
@@ -86,10 +86,11 @@ const css = `
   text-align: center;
   margin-bottom: 2rem;
 }
-.login-brand i {
-  font-size: 2.2rem;
-  color: var(--gold);
-  margin-bottom: .8rem;
+.login-brand .brand-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin: 0 auto .8rem;
 }
 .login-brand h1 {
   font-size: 2.2rem;

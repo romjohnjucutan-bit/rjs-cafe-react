@@ -156,7 +156,7 @@ export default function Reservations() {
               <div className="form-section">
                 <h3>Reservation Details</h3>
                 <div className="gold-rule"><i className="fas fa-circle"></i></div>
-                <div className="form-row" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
+                <div className="form-row reservation-row">
                   <div className="form-group">
                     <label>Date *</label>
                     <input type="date" name="reservation_date" className="form-control"
@@ -315,4 +315,12 @@ const css = `
   text-transform: uppercase;
 }
 .kv span:last-child { color: var(--text); text-align: right; }
+@media (max-width: 600px) {
+  .reservation-detail-head { align-items: flex-start; }
+  .kv { flex-direction: column; align-items: flex-start; }
+  .kv span:last-child { text-align: left; }
+}
+@media (max-width: 700px) {
+  .reservation-row { grid-template-columns: 1fr; }
+}
 `

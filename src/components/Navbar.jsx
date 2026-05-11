@@ -10,13 +10,9 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="nav-brand" onClick={close}>
-        <i className="fas fa-mug-hot"></i>
+        <img src="/logo.png" alt="RJ's Cafe logo" className="brand-logo" />
         RJ's CAFÉ
       </Link>
-
-      <button className="mobile-toggle" onClick={() => setOpen(!open)} aria-label="Menu">
-        <i className={`fas ${open ? 'fa-times' : 'fa-bars'}`}></i>
-      </button>
 
       <ul className={`nav-links ${open ? 'open' : ''}`}>
         <li><NavLink to="/" end onClick={close}>Home</NavLink></li>
@@ -25,10 +21,15 @@ export default function Navbar() {
         <li><NavLink to="/track" onClick={close}>Track Order</NavLink></li>
       </ul>
 
-      <Link to="/cart" className="nav-cart" aria-label="Cart">
-        <i className="fas fa-shopping-bag"></i>
-        {itemCount > 0 && <span className="nav-cart-count">{itemCount}</span>}
-      </Link>
+      <div className="nav-actions">
+        <Link to="/cart" className="nav-cart" aria-label="Cart">
+          <i className="fas fa-shopping-bag"></i>
+          {itemCount > 0 && <span className="nav-cart-count">{itemCount}</span>}
+        </Link>
+        <button className="mobile-toggle" onClick={() => setOpen(!open)} aria-label="Menu">
+          <i className={`fas ${open ? 'fa-times' : 'fa-bars'}`}></i>
+        </button>
+      </div>
     </nav>
   )
 }

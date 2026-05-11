@@ -1,4 +1,5 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import AdminLayout from './components/AdminLayout.jsx'
@@ -29,7 +30,61 @@ import AdminProfile from './pages/admin/Profile.jsx'
 
 export default function App() {
   const { pathname } = useLocation()
+  const navigate = useNavigate()
   const isAdmin = pathname.startsWith('/admin')
+
+  useEffect(() => {
+    if (isAdmin) return
+
+    const swipeRoutes = ['/', '/menu', '/reservations', '/track', '/cart']
+    const normalizePath = (path) => (path.startsWith('/track/') ? '/track' : path)
+    const currentIndex = swipeRoutes.indexOf(normalizePath(pathname))
+
+    if (currentIndex === -1) return
+
+    let startX = 0
+    let startY = 0
+
+    const shouldIgnoreTarget = (target) => {
+      if (!target || !(target instanceof Element)) return false
+      return Boolean(
+        target.closest('input, textarea, select, button, a, [contenteditable="true"]')
+      )
+    }
+
+    const onTouchStart = (event) => {
+      if (shouldIgnoreTarget(event.target)) return
+      const touch = event.touches[0]
+      startX = touch.clientX
+      startY = touch.clientY
+    }
+
+    const onTouchEnd = (event) => {
+      if (shouldIgnoreTarget(event.target)) return
+      const touch = event.changedTouches[0]
+      const dx = touch.clientX - startX
+      const dy = touch.clientY - startY
+      const absDx = Math.abs(dx)
+      const absDy = Math.abs(dy)
+
+      if (absDx < 60 || absDx < absDy * 1.2) return
+
+      if (dx < 0 && currentIndex < swipeRoutes.length - 1) {
+        navigate(swipeRoutes[currentIndex + 1])
+      }
+      if (dx > 0 && currentIndex > 0) {
+        navigate(swipeRoutes[currentIndex - 1])
+      }
+    }
+
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+    window.addEventListener('touchend', onTouchEnd, { passive: true })
+
+    return () => {
+      window.removeEventListener('touchstart', onTouchStart)
+      window.removeEventListener('touchend', onTouchEnd)
+    }
+  }, [isAdmin, pathname, navigate])
 
   return (
     <>

@@ -34,7 +34,7 @@ export default function Home() {
           <h1>A Quiet <em>Indulgence</em></h1>
           <p className="home-sub">
             Hand-pulled espresso, slow mornings, and the kind of pastries that make you sit
-            a little longer. Welcome to RJ's.
+            a little longer. Welcome to RJ's Café.
           </p>
           <div className="home-cta">
             <Link to="/menu" className="btn btn-primary">
@@ -97,7 +97,7 @@ export default function Home() {
               <i className="fas fa-circle"></i>
             </div>
             <p>
-              RJ's began as a small dream — a corner where good coffee meets good company.
+              RJ's Café began as a small dream — a corner where good coffee meets good company.
               Every cup is poured with care, every pastry baked the morning of, and every
               guest treated like an old friend.
             </p>
@@ -105,9 +105,7 @@ export default function Home() {
               We're not in a hurry. Neither should you be.
             </p>
           </div>
-          <div className="about-image">
-            <i className="fas fa-coffee"></i>
-          </div>
+          <div className="about-image"></div>
         </div>
       </section>
 
@@ -170,9 +168,11 @@ const css = `
   transform: translate(-50%, -50%);
   animation: spin 50s linear infinite;
   pointer-events: none;
+  max-width: 100vw;
+  max-height: 100vw;
 }
-.deco-ring-1 { width: 700px; height: 700px; }
-.deco-ring-2 { width: 1000px; height: 1000px; animation-duration: 80s; animation-direction: reverse; opacity: .6; }
+.deco-ring-1 { width: clamp(320px, 90vw, 700px); height: clamp(320px, 90vw, 700px); }
+.deco-ring-2 { width: clamp(420px, 100vw, 1000px); height: clamp(420px, 100vw, 1000px); animation-duration: 80s; animation-direction: reverse; opacity: .6; }
 @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }

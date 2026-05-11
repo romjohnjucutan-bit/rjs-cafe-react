@@ -122,8 +122,20 @@ input, textarea, select { font-family: inherit; }
   display: flex; align-items: center; gap: .75rem;
 }
 .nav-brand i { font-size: 1.15rem; }
+.brand-logo {
+  width: 26px;
+  height: 26px;
+  padding: 3px;
+  background: var(--white);
+  border-radius: 50%;
+  object-fit: contain;
+  display: block;
+}
 .nav-links {
   display: flex; align-items: center; gap: 2.4rem;
+}
+.nav-actions {
+  display: flex; align-items: center; gap: .35rem;
 }
 .nav-links a {
   font-family: 'Cinzel', serif;
@@ -158,19 +170,23 @@ input, textarea, select { font-family: inherit; }
 
 @media (max-width: 768px) {
   .navbar { padding: 0 1.25rem; height: 70px; }
+  .nav-actions { margin-left: auto; }
   .nav-links {
-    position: fixed; top: 70px; left: 0; right: 0;
+    position: fixed; top: 70px; right: 1rem;
     background: var(--black);
     flex-direction: column;
     gap: 0; padding: 0;
     border-bottom: 1px solid var(--border);
+    border: 1px solid var(--border);
     max-height: 0; overflow: hidden;
+    width: min(170px, calc(100vw - 3rem));
     transition: max-height .35s ease;
   }
   .nav-links.open { max-height: 400px; }
-  .nav-links a { padding: 1.1rem 1.5rem; width: 100%; border-bottom: 1px solid var(--border-l); }
+  .nav-links a { padding: 1.1rem 1.5rem; width: 100%; border-bottom: none; }
+  .nav-links a.active::after { display: none; }
   .mobile-toggle { display: block; }
-  .nav-cart { margin-left: auto; margin-right: .5rem; }
+  .nav-cart { margin-right: .35rem; }
 }
 
 /* ── FOOTER ──────────────────────────────────────────────── */

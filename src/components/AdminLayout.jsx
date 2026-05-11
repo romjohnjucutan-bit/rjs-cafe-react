@@ -30,7 +30,7 @@ export default function AdminLayout({ requireAdmin = false }) {
     <div className="admin-shell">
       <aside className={`admin-sidebar ${open ? 'open' : ''}`}>
         <div className="admin-brand">
-          <i className="fas fa-mug-hot"></i>
+          <img src="/logo.png" alt="RJ's Cafe logo" className="brand-logo" />
           <div>
             <div className="brand-name">RJ's Café</div>
             <div className="brand-sub">{isAdmin ? 'Admin' : 'Staff'} Panel</div>
@@ -105,9 +105,10 @@ const css = `
   display: flex; align-items: center; gap: .85rem;
   border-bottom: 1px solid var(--border-l);
 }
-.admin-brand i {
-  font-size: 1.6rem;
-  color: var(--gold);
+.admin-brand .brand-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 .brand-name {
   font-family: 'Cinzel', serif;

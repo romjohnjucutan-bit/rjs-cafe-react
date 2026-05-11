@@ -10,9 +10,10 @@ export default function Footer() {
         <div>
           <h4>Visit Us</h4>
           <ul>
-            <li><i className="fas fa-map-marker-alt"></i> Imus, Cavite, Philippines</li>
-            <li><i className="fas fa-phone"></i> +63 917 123 4567</li>
-            <li><i className="fas fa-envelope"></i> hello@rjscafe.ph</li>
+            <li><i className="fas fa-map-marker-alt"></i> Ubayon, Loon, Bohol</li>
+            <li><i className="fas fa-phone"></i> 09156830531</li>
+            <li><i className="fas fa-envelope"></i> jucutanromjohn30@gmail.com</li>
+            <li><i className="fas fa-envelope"></i> alfantewenebee@gmail.com</li>
           </ul>
         </div>
         <div>
