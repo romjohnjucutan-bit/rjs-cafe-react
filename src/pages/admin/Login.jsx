@@ -29,7 +29,7 @@ export default function AdminLogin() {
     <div className="login-page">
       <div className="login-card">
         <div className="login-brand">
-          <img src="/logo.png" alt="RJ's Cafe logo" className="brand-logo" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="RJ's Cafe logo" className="brand-logo" />
           <h1>RJ's <em>Café</em></h1>
           <span className="label-text">Staff Portal</span>
         </div>

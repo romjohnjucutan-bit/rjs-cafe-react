@@ -30,7 +30,7 @@ export default function AdminLayout({ requireAdmin = false }) {
     <div className="admin-shell">
       <aside className={`admin-sidebar ${open ? 'open' : ''}`}>
         <div className="admin-brand">
-          <img src="/logo.png" alt="RJ's Cafe logo" className="brand-logo" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="RJ's Cafe logo" className="brand-logo" />
           <div>
             <div className="brand-name">RJ's Café</div>
             <div className="brand-sub">{isAdmin ? 'Admin' : 'Staff'} Panel</div>

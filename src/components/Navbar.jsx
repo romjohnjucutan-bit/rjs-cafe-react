@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="nav-brand" onClick={close}>
-        <img src="/logo.png" alt="RJ's Cafe logo" className="brand-logo" />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="RJ's Cafe logo" className="brand-logo" />
         RJ's CAFÉ
       </Link>
 
