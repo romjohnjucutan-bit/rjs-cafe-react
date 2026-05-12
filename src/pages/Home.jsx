@@ -225,6 +225,19 @@ const css = `
   transition: color .2s;
 }
 .featured-link:hover { color: var(--gold-l); }
+@media (max-width: 600px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .9rem;
+  }
+  .featured-img { height: 140px; }
+  .featured-body { padding: 1rem; }
+  .featured-body h3 { font-size: 1.1rem; }
+  .featured-body p { font-size: .8rem; min-height: 0; }
+  .featured-foot { flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .price { font-size: 1.05rem; }
+  .featured-link { font-size: .6rem; }
+}
 
 /* ABOUT */
 .about-section { padding: 6rem 0; background: var(--black2); }

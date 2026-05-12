@@ -141,24 +141,24 @@ export default function AdminProducts() {
               <tbody>
                 {filtered.map(p => (
                   <tr key={p.id}>
-                    <td>
+                    <td data-label="Image">
                       <div className="prod-thumb">
                         {p.image ? <img src={p.image} alt={p.name} /> : <i className="fas fa-mug-hot"></i>}
                       </div>
                     </td>
-                    <td>
+                    <td data-label="Name">
                       <div style={{ color: 'var(--cream)' }}>{p.name}</div>
                       {p.is_featured === 1 && <span className="badge badge-completed" style={{ marginTop: 4 }}>Featured</span>}
                     </td>
-                    <td>{p.categories?.name || '—'}</td>
-                    <td>₱{Number(p.price).toFixed(2)}</td>
-                    <td>{p.stock}</td>
-                    <td>
+                    <td data-label="Category">{p.categories?.name || '—'}</td>
+                    <td data-label="Price">₱{Number(p.price).toFixed(2)}</td>
+                    <td data-label="Stock">{p.stock}</td>
+                    <td data-label="Status">
                       <span className={`badge ${p.is_available ? 'badge-completed' : 'badge-cancelled'}`}>
                         {p.is_available ? 'Available' : 'Hidden'}
                       </span>
                     </td>
-                    <td>
+                    <td data-label="Actions">
                       <button className="action-icon" onClick={() => openEdit(p)} title="Edit"><i className="fas fa-edit"></i></button>
                       <button className="action-icon danger" onClick={() => handleDelete(p)} title="Delete"><i className="fas fa-trash"></i></button>
                     </td>
@@ -263,6 +263,38 @@ export default function AdminProducts() {
           margin-bottom: .6rem;
         }
         .image-preview img { width: 60px; height: 60px; object-fit: cover; }
+        @media (max-width: 720px) {
+          .table-wrap { overflow: visible; }
+          .data-table thead { display: none; }
+          .data-table, .data-table tbody, .data-table tr, .data-table td {
+            display: block;
+            width: 100%;
+          }
+          .data-table tr {
+            border: 1px solid var(--border);
+            background: var(--black2);
+            margin-bottom: 1rem;
+          }
+          .data-table td {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: .75rem 1rem;
+            border-bottom: 1px solid var(--border-l);
+          }
+          .data-table td:last-child { border-bottom: none; }
+          .data-table td::before {
+            content: attr(data-label);
+            font-family: 'Cinzel', serif;
+            font-size: .58rem;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--text-l);
+          }
+          .data-table td[data-label="Image"]::before { content: ''; }
+          .data-table td[data-label="Actions"] { justify-content: flex-end; }
+        }
       `}</style>
     </>
   )

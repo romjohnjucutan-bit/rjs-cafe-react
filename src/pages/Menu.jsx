@@ -197,6 +197,19 @@ const css = `
   font-size: .6rem;
 }
 .btn-add.added { background: var(--success); border-color: var(--success); color: var(--white); }
+@media (max-width: 600px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .9rem;
+  }
+  .menu-card-img { height: 130px; }
+  .menu-card-body { padding: 1rem; }
+  .menu-card-body h3 { font-size: 1.1rem; }
+  .menu-card-body p { font-size: .8rem; }
+  .menu-card-foot { flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .menu-card-foot .price { font-size: 1.1rem; }
+  .btn-add { padding: .45rem .9rem; font-size: .55rem; }
+}
 
 .menu-empty {
   text-align: center;

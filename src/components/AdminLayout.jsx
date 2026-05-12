@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink, Outlet, Navigate, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
+import logo from '../assets/logo.png'
 
 export default function AdminLayout({ requireAdmin = false }) {
   const { session, staff, loading, signOut, isAdmin } = useAuth()
@@ -30,7 +31,7 @@ export default function AdminLayout({ requireAdmin = false }) {
     <div className="admin-shell">
       <aside className={`admin-sidebar ${open ? 'open' : ''}`}>
         <div className="admin-brand">
-          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="RJ's Cafe logo" className="brand-logo" />
+          <img src={logo} alt="RJ's Cafe logo" className="brand-logo" />
           <div>
             <div className="brand-name">RJ's Café</div>
             <div className="brand-sub">{isAdmin ? 'Admin' : 'Staff'} Panel</div>

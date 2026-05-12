@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext.jsx'
+import logo from '../assets/logo.png'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -10,7 +11,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="nav-brand" onClick={close}>
-        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="RJ's Cafe logo" className="brand-logo" />
+        <img src={logo} alt="RJ's Cafe logo" className="brand-logo" />
         RJ's CAFÉ
       </Link>
 
